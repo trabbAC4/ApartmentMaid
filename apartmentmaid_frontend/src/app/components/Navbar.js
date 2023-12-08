@@ -1,6 +1,6 @@
 "use client"
 import Image from 'next/image';
-import Link from 'next/Link'
+import Link from 'next/Link';
 import {useState} from 'react';
 
 
@@ -11,12 +11,12 @@ const NavBar = () => {
     const links = [
         {
             id: 1,
-            link: "home",
+            link: "Home"
         
         },
         {
             id: 2,
-            link: "Book Now"
+            link: "BookNow"
         },
         {
             id: 3,
@@ -63,7 +63,7 @@ const NavBar = () => {
             onClick={() => setNav(!nav)}
             className="cursor-pointer pr-4 z-10 text-gray-500 md:hidden"
           >
-            
+
           </div>
     
           {nav && (
