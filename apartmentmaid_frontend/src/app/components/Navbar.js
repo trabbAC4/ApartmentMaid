@@ -43,7 +43,14 @@ const NavBar = () => {
                 target="_blank"
                 rel="noreferrer"
               >
-                Logo
+                <Image 
+                  src = "/apartmentmaid.jpg"
+                  alt = "AMAID LOGO"
+                  width = {80}
+                  height=  {10}
+                  className = "cursor-pointer"
+                 />
+
               </a>
             </h1>
           </div>

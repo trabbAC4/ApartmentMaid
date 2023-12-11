@@ -1,3 +1,8 @@
+'use client';
+import Image from 'next/image';
+import Footer from '../components/Footer';
+
+
 
 export default function BookNow() {
     return (
