@@ -677,32 +677,35 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
-export interface ApiBookingBooking extends Schema.CollectionType {
-  collectionName: 'bookings';
+export interface ApiApartmentserviceApartmentservice
+  extends Schema.CollectionType {
+  collectionName: 'apartmentservices';
   info: {
-    singularName: 'booking';
-    pluralName: 'bookings';
-    displayName: 'Booking_Appointment';
-    description: '';
+    singularName: 'apartmentservice';
+    pluralName: 'apartmentservices';
+    displayName: 'apartmentservice';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    onebedroom: Attribute.String & Attribute.Required & Attribute.Unique;
-    Price: Attribute.Integer;
-    date: Attribute.DateTime & Attribute.Required & Attribute.Unique;
+    name: Attribute.String;
+    image: Attribute.Media;
+    meta_description: Attribute.Text;
+    meta_title: Attribute.Text;
+    price: Attribute.Decimal;
+    slug: Attribute.UID<'api::apartmentservice.apartmentservice', 'name'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
-      'api::booking.booking',
+      'api::apartmentservice.apartmentservice',
       'oneToOne',
       'admin::user'
     > &
       Attribute.Private;
     updatedBy: Attribute.Relation<
-      'api::booking.booking',
+      'api::apartmentservice.apartmentservice',
       'oneToOne',
       'admin::user'
     > &
@@ -757,7 +760,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
-      'api::booking.booking': ApiBookingBooking;
+      'api::apartmentservice.apartmentservice': ApiApartmentserviceApartmentservice;
       'api::subscription.subscription': ApiSubscriptionSubscription;
     }
   }

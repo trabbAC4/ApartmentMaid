@@ -1,6 +1,9 @@
 'use client'
-import Image from 'next/image'
-import Footer from './components/Footer'
+import Image from 'next/image';
+import Footer from './components/Footer';
+import Link from 'next/Link';
+
+
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
@@ -41,6 +44,7 @@ export default function Home() {
 
 
     <h1> BOOK NOW </h1>
+    <Link href = "/BookNow"> Book Now </Link>
 
 
 
