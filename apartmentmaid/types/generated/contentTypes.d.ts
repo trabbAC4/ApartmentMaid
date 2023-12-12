@@ -362,6 +362,73 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
   };
 }
 
+export interface ApiApartmentserviceApartmentservice
+  extends Schema.CollectionType {
+  collectionName: 'apartmentservices';
+  info: {
+    singularName: 'apartmentservice';
+    pluralName: 'apartmentservices';
+    displayName: 'apartmentservice';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    image: Attribute.Media;
+    meta_description: Attribute.Text;
+    meta_title: Attribute.Text;
+    price: Attribute.Decimal;
+    slug: Attribute.UID<'api::apartmentservice.apartmentservice', 'name'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::apartmentservice.apartmentservice',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::apartmentservice.apartmentservice',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiSubscriptionSubscription extends Schema.CollectionType {
+  collectionName: 'subscriptions';
+  info: {
+    singularName: 'subscription';
+    pluralName: 'subscriptions';
+    displayName: 'Subscription';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Apartment: Attribute.String;
+    date: Attribute.DateTime;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::subscription.subscription',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::subscription.subscription',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface PluginUploadFile extends Schema.CollectionType {
   collectionName: 'files';
   info: {
@@ -677,73 +744,6 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
-export interface ApiApartmentserviceApartmentservice
-  extends Schema.CollectionType {
-  collectionName: 'apartmentservices';
-  info: {
-    singularName: 'apartmentservice';
-    pluralName: 'apartmentservices';
-    displayName: 'apartmentservice';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    name: Attribute.String;
-    image: Attribute.Media;
-    meta_description: Attribute.Text;
-    meta_title: Attribute.Text;
-    price: Attribute.Decimal;
-    slug: Attribute.UID<'api::apartmentservice.apartmentservice', 'name'>;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::apartmentservice.apartmentservice',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::apartmentservice.apartmentservice',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiSubscriptionSubscription extends Schema.CollectionType {
-  collectionName: 'subscriptions';
-  info: {
-    singularName: 'subscription';
-    pluralName: 'subscriptions';
-    displayName: 'Subscription';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    Apartment: Attribute.String;
-    date: Attribute.DateTime;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::subscription.subscription',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::subscription.subscription',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -754,14 +754,14 @@ declare module '@strapi/types' {
       'admin::api-token-permission': AdminApiTokenPermission;
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
+      'api::apartmentservice.apartmentservice': ApiApartmentserviceApartmentservice;
+      'api::subscription.subscription': ApiSubscriptionSubscription;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::i18n.locale': PluginI18NLocale;
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
-      'api::apartmentservice.apartmentservice': ApiApartmentserviceApartmentservice;
-      'api::subscription.subscription': ApiSubscriptionSubscription;
     }
   }
 }
