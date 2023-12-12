@@ -1,6 +1,8 @@
 'use client';
 import Image from 'next/image';
 import Footer from '../components/Footer';
+import ApartmentService from '../../../apartmentservices.json'
+
 
 
 
@@ -8,7 +10,7 @@ export default function BookNow() {
     return (
         <>
         <div class="flex items-center justify-center p-12">
-    <div class="mx-auto w-full max-w-[550px] bg-white">
+            <div class="mx-auto w-full max-w-[550px] bg-white">
         <form>
             <div class="mb-5">
                 <label for="name" class="mb-3 block text-base font-medium text-[#07074D]">
@@ -92,7 +94,19 @@ export default function BookNow() {
             </div>
         </form>
     </div>
-</div>
+    </div>
+    {ApartmentService.data.map((ApartmentService) => {
+        return (
+            <div key = {ApartmentService.id} className = "grid gap-4 p-4 text-center"> 
+                <div> {ApartmentService.attributes.name} </div>
+                <div> Description: {ApartmentService.attributes.meta_description}</div>
+                <div> Price: {ApartmentService.attributes.price} </div>
+                <button className = "col-span-2 bg-blue-500 text-white py-2 rounded-md"> Book Now </button>
+            </div> 
+            
+        )
+    })}
+
 
         </>
     )

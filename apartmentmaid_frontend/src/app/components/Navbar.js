@@ -34,6 +34,11 @@ const NavBar = () => {
         text: 'Log In',
         link: "/Login"
       },
+      {
+        id: 6,
+        text: 'Contact',
+        link: "/Contact"
+      }
     ];
   
     return (
